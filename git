@@ -1,0 +1,6 @@
+#!/bin/bash
+git add .
+read -p "Xeyirli-ugurlu olsun: " message
+git commit -m "$message"
+git push
+git status
