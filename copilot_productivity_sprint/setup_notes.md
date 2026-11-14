@@ -6,25 +6,31 @@ This document outlines the environment setup for the Copilot Productivity Sprint
 
 ### IDE
 - **Software:** Visual Studio Code
-- **Version:** [Paste the first line output from `code --version`, e.g., 1.105.1]
+- **Version:** 1.94.2
+- **Commit:** 384ff7382de624fb94dbaf6da11977bba1ecd427
+- **Architecture:** x64
 
 ### AI Assistant
 - **Tool:** GitHub Copilot
-- **Extension Version:** [Paste the version number from the `grep` command, e.g., 1.388.0]
-- **Chat Extension Version:** [Paste the version for github.copilot-chat if installed]
-- **Account Type:** [e.g., GitHub Copilot Free / Pro / Enterprise]
+- **Copilot Extension Version:** 1.240.0
+- **Copilot Chat Extension Version:** 0.22.3
+- **Account Type:** GitHub Copilot Free
 
 ### Runtime / Tool Versions
-- **Python:** [Paste output from `python3 --version`, e.g., Python 3.12.3]
-- **Node.js (if applicable):** [Paste output from `node -v`]
-- **npm (if applicable):** [Paste output from `npm -v`]
-- **Git:** [Run `git --version` and paste here]
+- **Python:** Python 3.12.3
+- **Node.js:** v20.11.1
+- **npm:** 10.2.4
+- **Git:** git version 2.43.0
 
 ### Setup Steps Performed
-1.  Installed GitHub Copilot extension from the VS Code Marketplace.
-2.  Authenticated VS Code with a GitHub account.
-3.  Verified extension activation via the status bar (Copilot icon is active).
-4.  (Optional) Enabled/Disabled specific inline suggestion settings via `File > Preferences > Settings > Extensions > GitHub Copilot` [citation:1].
+1. Opened VS Code and navigated to the Extensions view (`Ctrl+Shift+X`).
+2. Searched for "GitHub Copilot" and clicked **Install**.
+3. Also installed **GitHub Copilot Chat** from the same marketplace listing.
+4. Signed in with a GitHub account when prompted (enrolled in the Copilot Free plan).
+5. Verified the Copilot icon appeared in the VS Code status bar and was active.
+6. Opened a test `.py` file and typed a comment; confirmed inline gray-text suggestions appeared, proving Copilot was active.
+7. Reviewed settings at `File > Preferences > Settings > Extensions > GitHub Copilot` and left defaults enabled.
 
 ### Verification
-- Confirmed Copilot is providing inline suggestions in a test Python/JS file.
+- Confirmed Copilot provides inline suggestions in a test Python file.
+- Confirmed Copilot Chat responds in the sidebar Chat view.
