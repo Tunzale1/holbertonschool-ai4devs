@@ -2,28 +2,38 @@
 
 ## Overview
 
-This document describes the fixes applied to the five buggy code snippets and records the results of testing each corrected implementation.
+This document records the fixes applied to the five original buggy code snippets and the validation results for their corresponding corrected files.
 
-All five files were tested using normal inputs and relevant edge cases to verify that the original issues were resolved.
+Each validation section explicitly identifies the original source file and its corresponding fixed file to ensure clear traceability.
+
+All five fixed files were evaluated using normal inputs and relevant edge cases.
 
 ---
 
-## 1. bug1.py – Incorrect Average Calculation
+## 1. bug1.py → bug1_fixed.py
 
-- **Original Issue:** The average calculation used `len(numbers) - 1` instead of the actual list length. Empty lists also caused division by zero.
+**Original File:** `bug1.py`
+
+**Fixed File:** `bug1_fixed.py`
+
+- **Original Issue:** The average calculation used `len(numbers) - 1` instead of the actual list length, potentially causing incorrect results and division by zero for empty lists.
 - **Fix Applied:** Changed the divisor to `len(numbers)` and added an empty-list check.
 - **Tests Performed:**
   1. Calculate the average of `[80, 90, 70, 100]`.
-  2. Calculate the average of a single-element list `[5]`.
-  3. Calculate the average of an empty list `[]`.
+  2. Calculate the average of `[5]`.
+  3. Calculate the average of `[]`.
 - **Test Results:** All 3 test cases passed.
 - **Status:** PASS
 
 ---
 
-## 2. bug2.py – Off-by-One Slicing Error
+## 2. bug2.py → bug2_fixed.py
 
-- **Original Issue:** The expression `items[-n:-1]` excluded the last element of the list.
+**Original File:** `bug2.py`
+
+**Fixed File:** `bug2_fixed.py`
+
+- **Original Issue:** The slicing expression `items[-n:-1]` excluded the last element of the list.
 - **Fix Applied:** Replaced the incorrect slice with `items[-n:]` and added handling for zero and negative values.
 - **Tests Performed:**
   1. Retrieve the last three elements from `[10, 20, 30, 40, 50]`.
@@ -35,9 +45,13 @@ All five files were tested using normal inputs and relevant edge cases to verify
 
 ---
 
-## 3. bug3.js – Incorrect Username Validation
+## 3. bug3.js → bug3_fixed.js
 
-- **Original Issue:** The username validation used the assignment operator (`=`) instead of a proper comparison. It also lacked sufficient age validation.
+**Original File:** `bug3.js`
+
+**Fixed File:** `bug3_fixed.js`
+
+- **Original Issue:** The username validation used the assignment operator instead of a proper comparison. It also lacked sufficient age validation.
 - **Fix Applied:** Added string type checking, whitespace validation using `trim()`, and integer age validation with a minimum age of 18.
 - **Tests Performed:**
   1. Submit an empty username.
@@ -50,9 +64,13 @@ All five files were tested using normal inputs and relevant edge cases to verify
 
 ---
 
-## 4. bug4.java – Null Pointer Exception
+## 4. bug4.java → bug4_fixed.java
 
-- **Original Issue:** The method attempted to call `.equals()` on a null value and did not validate array indexes.
+**Original File:** `bug4.java`
+
+**Fixed File:** `bug4_fixed.java`
+
+- **Original Issue:** The method attempted to call `.equals()` on a null value, potentially causing a NullPointerException. It also lacked array index validation.
 - **Fix Applied:** Added array boundary checks, null checks, and empty-string validation.
 - **Tests Performed:**
   1. Retrieve a valid username.
@@ -66,10 +84,14 @@ All five files were tested using normal inputs and relevant edge cases to verify
 
 ---
 
-## 5. bug5.py – SQL Injection Vulnerability
+## 5. bug5.py → bug5_fixed.py
+
+**Original File:** `bug5.py`
+
+**Fixed File:** `bug5_fixed.py`
 
 - **Original Issue:** The SQL query directly inserted user input into the query string, creating an SQL injection vulnerability. The original example also referenced an undefined database cursor.
-- **Fix Applied:** Replaced string formatting with a parameterized SQL query using SQLite's `?` placeholder. Added a working example with an in-memory SQLite database.
+- **Fix Applied:** Replaced unsafe string formatting with a parameterized SQL query using SQLite's `?` placeholder. Added a working example with an in-memory SQLite database.
 - **Tests Performed:**
   1. Retrieve an existing user from the database.
   2. Search for a username that does not exist.
@@ -81,13 +103,13 @@ All five files were tested using normal inputs and relevant edge cases to verify
 
 ## Summary of Validation Results
 
-| File | Original Issue | Tests Passed | Status |
+| Original File | Fixed File | Tests Passed | Status |
 |---|---|---:|---|
-| bug1.py | Incorrect Average | 3/3 | PASS |
-| bug2.py | Off-by-One Error | 4/4 | PASS |
-| bug3.js | Input Validation | 5/5 | PASS |
-| bug4.java | Null Pointer Exception | 6/6 | PASS |
-| bug5.py | SQL Injection | 3/3 | PASS |
+| bug1.py | bug1_fixed.py | 3/3 | PASS |
+| bug2.py | bug2_fixed.py | 4/4 | PASS |
+| bug3.js | bug3_fixed.js | 5/5 | PASS |
+| bug4.java | bug4_fixed.java | 6/6 | PASS |
+| bug5.py | bug5_fixed.py | 3/3 | PASS |
 
 **Total Test Cases:** 21
 
@@ -97,10 +119,10 @@ All five files were tested using normal inputs and relevant edge cases to verify
 
 ## Conclusion
 
-All five buggy code snippets were successfully corrected and validated.
+All five original buggy code snippets have corresponding corrected implementations in the `bug_fixes/` directory.
 
-The fixes addressed logic errors, slicing problems, input validation issues, runtime exceptions, and SQL injection vulnerabilities.
+Each fixed file has an explicitly documented relationship with its original source file, the issue identified, the fix applied, and the validation results.
 
-Testing confirmed that the corrected implementations behaved as expected for the selected test cases.
+The validation exercise demonstrates how AI-assisted debugging, manual code review, and testing can improve code correctness, reliability, and security.
 
-This exercise demonstrated the importance of combining AI-generated debugging suggestions with manual code review and practical testing to ensure software correctness and reliability.
+All five fixes are marked as successfully validated.
